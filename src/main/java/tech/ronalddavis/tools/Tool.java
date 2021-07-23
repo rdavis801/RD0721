@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class Tool {
-    String toolType;
+    ToolType toolType;
     String brand;
     ToolCode toolCode;
 }
