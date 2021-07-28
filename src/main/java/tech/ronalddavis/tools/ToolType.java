@@ -12,31 +12,33 @@ public enum ToolType {
     private static final BigDecimal CHAINSAW_CHARGE = BigDecimal.valueOf(1.49);
     private static final BigDecimal JACKHAMMER_CHARGE = BigDecimal.valueOf(2.99);
 
+    /*
+     * Constructor for ToolType
+     */
     ToolType(String toolType) { this.toolType = toolType; }
 
+    /*
+     * Returns the String value of ToolType
+     */
     public String getToolType() { return toolType; }
 
-    public static ToolType getChargeMaster(String chargeMasterValue) {
-        for (ToolType toolType : ToolType.values()) {
-            if (toolType.getToolType().equals(chargeMasterValue)) {
-                return toolType;
-            }
-        }
-        return null;
-    }
-
-    public static boolean weekendCharge(ToolType toolType) {
+    /*
+     * Returns if the given ToolType incurs a charge on weekends
+     */
+    public static boolean chargeOnWeekends(ToolType toolType) {
         return toolType == LADDER;
     }
 
-    public static boolean holidayCharge(ToolType toolType) {
+    /*
+     * Returns if the given ToolType incurs a charge on holidays
+     */
+    public static boolean chargeOnHolidays(ToolType toolType) {
         return toolType == CHAINSAW;
     }
 
-    public static boolean weekdayCharge(ToolType toolType) {
-        return toolType == CHAINSAW || toolType == LADDER || toolType == JACKHAMMER;
-    }
-
+    /*
+     * Returns if the dailyCharge associated with the given ToolType
+     */
     public static BigDecimal dailyCharge(ToolType toolType) {
         switch (toolType){
             case LADDER:
